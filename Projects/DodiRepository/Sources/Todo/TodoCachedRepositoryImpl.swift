@@ -54,7 +54,7 @@ struct TodoCachedRepositoryImpl: TodoCachedRepository {
 
   func update(_ todo: Todo) {
     var todos = self.cachedTodos()
-    guard let index = todos.firstIndex(of: todo) else { return }
+    guard let index = todos.firstIndex(where: { $0.id == todo.id }) else { return }
 
     todos[index] = todo
     self.save(todos)

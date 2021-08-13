@@ -15,7 +15,6 @@ make all
 ## Point of concern
 
 1. I'm debating whether to provide a Builder for the Repository or an repository interface of a specific implementation object(such as TodoCachedRepository) from RootComponent...
-2. shared doesn't work as Singleton... for each modules(List, Detail).. 
 
 ### RootComponent
 ```swift

@@ -20,12 +20,6 @@ struct TodoCachedRepositoryImpl: TodoCachedRepository {
 
   init(userDefaults: UserDefaults) {
     self.userDefaults = userDefaults
-    self.save([
-      Todo(id: 1, title: "test", description: "test"),
-      Todo(id: 2, title: "test-2", description: "test"),
-      Todo(id: 3, title: "test-3", description: "test"),
-      Todo(id: 4, title: "test-4", description: "test")
-    ])
   }
 
   func todo(id: Int) -> Todo? {

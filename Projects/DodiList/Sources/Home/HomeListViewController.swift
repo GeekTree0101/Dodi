@@ -32,6 +32,8 @@ public final class HomeListViewController: BaseViewController {
     $0.alwaysBounceVertical = true
   }
 
+  private let refreshControl = UIRefreshControl()
+
   // MARK: - Prop
 
   private let action: HomeListAction
@@ -54,6 +56,9 @@ public final class HomeListViewController: BaseViewController {
     super.viewDidLoad()
     self.collectionNode.delegate = self
     self.collectionNode.dataSource = self
+    self.collectionNode.view.refreshControl = self.refreshControl.then {
+      $0.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+    }
     self.action.reload()
   }
 
@@ -62,6 +67,11 @@ public final class HomeListViewController: BaseViewController {
       insets: self.node.safeAreaInsets,
       child: self.collectionNode
     )
+  }
+
+  @objc private func didPullToRefresh() {
+    self.refreshControl.beginRefreshing()
+    self.action.reload()
   }
 }
 
@@ -139,6 +149,7 @@ extension HomeListViewController: ASCollectionDataSource {
 extension HomeListViewController: HomeListRender {
 
   func reload(_ items: [CardCellNode.ViewModel]) {
+    self.refreshControl.endRefreshing()
     self.items = items
     self.collectionNode.reloadData()
   }

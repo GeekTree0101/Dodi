@@ -17,7 +17,7 @@ import DodiRepository
 class RootComponent: BootstrapComponent {
 
   var userDefaults: UserDefaults {
-    return shared { UserDefaults.standard }
+    return UserDefaults.standard
   }
 
   var repositoryBuilder: RepositoryBuilder {

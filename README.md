@@ -12,7 +12,8 @@ and run
 make all
 ```
 
-## point of concern
+## Point of concern
+I'm debating whether to provide a Builder for the Repository or an repository interface of a specific implementation object(such as TodoCachedRepository) from RootComponent...
 
 ### RootComponent
 ```swift

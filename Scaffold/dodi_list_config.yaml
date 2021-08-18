@@ -1,0 +1,6 @@
+target_project_name: DodiList
+copyright: Geektree0101
+template_path: ./Scaffold/templates
+source_dir: ./Projects/DodiList/Sources
+test_dir: ./Projects/DodiList/Tests
+indentation: 2
